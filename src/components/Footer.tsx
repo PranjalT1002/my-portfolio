@@ -20,7 +20,7 @@ export default function Footer() {
               Focused on building robust architectures and intelligent systems.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="https://github.com" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/PranjalT1002" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors">
                 <Github size={20} />
               </a>
               <a href="www.linkedin.com/in/pranjal-tripathi-iitm-bennett" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors">
