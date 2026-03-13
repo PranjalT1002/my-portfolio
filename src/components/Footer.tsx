@@ -37,7 +37,7 @@ export default function Footer() {
                 <Linkedin size={20} />
               </a>
             </div>
-              
+        </div>
 
           {/* 2. DIRECT CONTACT INFO */}
           <div className="space-y-6">
@@ -96,7 +96,7 @@ export default function Footer() {
           
         </div>
       </div>
-      </div>
+      
     </footer>
   );
 }
