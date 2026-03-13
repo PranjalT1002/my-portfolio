@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add to src/app/globals.css */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-text:hover {
+  animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+  color: #818cf8; /* Optional slightly different color on hover glitch */
+}
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 10, 10, 10;
@@ -17,6 +32,10 @@ body {
     )
     rgb(var(--background-start-rgb));
   scroll-behavior: smooth;
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px; /* Size of the grid squares */
 }
 
 /* Custom glow effect for cards */

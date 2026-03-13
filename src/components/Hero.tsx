@@ -11,9 +11,10 @@ export default function Hero() {
         className="text-center"
       >
         <p className="text-blue-400 font-mono mb-4">Dual Degree Engineer</p>
-        <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight">
-          Pranjal Tripathi<span className="text-blue-500">.</span>
-        </h1>
+        {/* src/components/Hero.tsx heading */}
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400 glitch-text cursor-default">
+            Pranjal.
+        </h1> 
         <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
           Bridging the gap between <span className="text-white">Software Architecture</span> and 
           <span className="text-white"> Data Intelligence</span>. Currently building 
