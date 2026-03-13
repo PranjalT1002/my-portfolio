@@ -19,15 +19,25 @@ export default function Footer() {
               Computer Science & Data Science student. 
               Focused on building robust architectures and intelligent systems.
             </p>
-            <div className="flex gap-4 pt-2">
-              <a href="https://github.com/PranjalT1002" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors">
+            <div className="flex gap-4 mt-6">
+              <a 
+                href="https://github.com/PranjalT1002" // Your actual GitHub
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-white/5 hover:bg-blue-500/10 hover:text-blue-400 transition-all"
+              >
                 <Github size={20} />
               </a>
-              <a href="www.linkedin.com/in/pranjal-tripathi-iitm-bennett" target="_blank" className="text-slate-400 hover:text-blue-400 transition-colors">
+              <a 
+                href="https://linkedin.com/in/pranjal-tripathi-iitm-bennett" // Paste your LinkedIn URL here
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-lg bg-white/5 hover:bg-blue-500/10 hover:text-blue-400 transition-all"
+              >
                 <Linkedin size={20} />
               </a>
             </div>
-          </div>
+              
 
           {/* 2. DIRECT CONTACT INFO */}
           <div className="space-y-6">
@@ -85,6 +95,7 @@ export default function Footer() {
           <p>© {currentYear} PRANJAL — BU & IITM DUAL DEGREE</p>
           
         </div>
+      </div>
       </div>
     </footer>
   );
