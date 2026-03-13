@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Pranjal | Dual-Degree Engineer",
   description: "Portfolio of a Computer Science & Data Science student.",
+  icons: {
+    icon: '/logo.png?v=2', // The ?v=2 forces a cache clear
+  },
 };
 
 export default function RootLayout({
