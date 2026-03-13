@@ -28,12 +28,12 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8">
           <ProjectCard 
             title="Jarvis Assistant"
-            desc="A sophisticated Python voice assistant with customized GUI, capable of task automation and system control."
+            description="A sophisticated Python voice assistant with customized GUI, capable of task automation and system control."
             tags={["Python", "PyQt", "Speech Recognition"]}
           />
           <ProjectCard 
             title="FinCore ERP"
-            desc="A full-stack accounting solution focusing on financial data integrity and real-time transaction tracking."
+            description="A full-stack accounting solution focusing on financial data integrity and real-time transaction tracking."
             tags={["Python", "Database Design", "Logic"]}
           />
         </div>
