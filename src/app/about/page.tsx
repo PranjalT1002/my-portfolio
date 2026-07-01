@@ -63,6 +63,29 @@ export default function AboutPage() {
             optimizing a database for an accounting platform like <span className="text-white">FinCore</span>,
             my goal is always precision and efficiency.
           </p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="pt-6"
+          >
+            <a 
+              href="/resume.pdf" 
+              download="resume.pdf"
+              target="_blank"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan hover:text-black font-bold text-sm transition-all duration-300 group"
+            >
+              Download Full Resume
+              <motion.span
+                className="inline-block"
+                animate={{ y: [0, 2, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                ↓
+              </motion.span>
+            </a>
+          </motion.div>
         </div>
       </motion.section>
 
