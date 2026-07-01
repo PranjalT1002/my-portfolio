@@ -10,18 +10,6 @@ const allProjects = [
     link: "https://github.com/PranjalT1002"
   },
   {
-    title: "Digital Design (Verilog)",
-    description: "Hardware-level implementation of logic gates and finite state machines. Simulated using Icarus Verilog and GTKWave.",
-    tags: ["Verilog", "HDL", "Digital Logic", "Icarus"],
-    link: "https://github.com/PranjalT1002"
-  },
-  {
-    title: "Data Insights Hub",
-    description: "Advanced data analysis project from my IIT Madras curriculum, utilizing statistical modeling and predictive analytics on complex datasets.",
-    tags: ["Pandas", "NumPy", "Scikit-Learn", "Matplotlib"],
-    link: "https://github.com/PranjalT1002"
-  },
-  {
     title: "Locus Path",
     description: "A creative agency landing page that transforms brands into digital experiences. Showcases a dynamic portfolio, services index, interactive forms, and magnetic CTA components.",
     tags: ["HTML5", "CSS3", "JavaScript", "Creative Agency", "Interactive UI"],
