@@ -30,6 +30,7 @@ const educationData: EducationItem[] = [
     location: "Greater Noida, India",
     color: "cyan",
     icon: <GraduationCap size={24} />,
+    score: "Year 1 Completed: 9.28 CGPA",
     description: "Focusing on core software engineering, digital logic design, and full-stack development.",
     semesters: [
       {
@@ -48,6 +49,7 @@ const educationData: EducationItem[] = [
     location: "Remote/Chennai, India",
     color: "emerald",
     icon: <Binary size={24} />,
+    score: "Year 1 Completed: 8.13 CGPA",
     description: "Deep diving into statistical modeling, computational thinking, and large-scale data analysis.",
     semesters: [
       {

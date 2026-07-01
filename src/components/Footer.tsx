@@ -126,6 +126,7 @@ export default function Footer() {
             <div className="pt-4">
               <motion.a
                 href="/resume.pdf"
+                download="resume.pdf"
                 target="_blank"
                 whileHover={{ scale: 1.03 }}
                 className="inline-flex items-center gap-2 text-sm font-bold text-white glass-card px-5 py-3 rounded-xl hover:text-cyber-cyan transition-all"
