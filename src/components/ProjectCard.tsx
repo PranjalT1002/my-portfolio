@@ -6,9 +6,10 @@ interface ProjectProps {
   description: string;
   tags: string[];
   link?: string;
+  linkText?: string;
 }
 
-export default function ProjectCard({ title, description, tags, link }: ProjectProps) {
+export default function ProjectCard({ title, description, tags, link, linkText }: ProjectProps) {
   return (
     <motion.div
       whileHover={{ 
@@ -67,7 +68,7 @@ export default function ProjectCard({ title, description, tags, link }: ProjectP
           className="inline-flex items-center gap-2 text-sm font-bold text-cyber-cyan/70 hover:text-cyber-cyan transition-colors group/link"
         >
           <span className="font-mono text-xs text-cyber-cyan/30">{">"}</span>
-          View Source Code 
+          {linkText || (link.includes("github.com") ? "View Source Code" : "Visit Live Site")}
           <motion.span
             className="inline-block"
             animate={{ x: [0, 4, 0] }}

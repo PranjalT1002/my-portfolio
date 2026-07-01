@@ -10,12 +10,6 @@ const allProjects = [
     link: "https://github.com/PranjalT1002"
   },
   {
-    title: "FinCore ERP",
-    description: "A full-stack accounting solution focusing on financial data integrity, real-time transaction tracking, and complex ledger logic.",
-    tags: ["Python", "SQLite", "Logic Design", "Financial Tech"],
-    link: "https://github.com/PranjalT1002"
-  },
-  {
     title: "Digital Design (Verilog)",
     description: "Hardware-level implementation of logic gates and finite state machines. Simulated using Icarus Verilog and GTKWave.",
     tags: ["Verilog", "HDL", "Digital Logic", "Icarus"],
@@ -26,6 +20,27 @@ const allProjects = [
     description: "Advanced data analysis project from my IIT Madras curriculum, utilizing statistical modeling and predictive analytics on complex datasets.",
     tags: ["Pandas", "NumPy", "Scikit-Learn", "Matplotlib"],
     link: "https://github.com/PranjalT1002"
+  },
+  {
+    title: "Locus Path",
+    description: "A creative agency landing page that transforms brands into digital experiences. Showcases a dynamic portfolio, services index, interactive forms, and magnetic CTA components.",
+    tags: ["HTML5", "CSS3", "JavaScript", "Creative Agency", "Interactive UI"],
+    link: "https://locus-path-web.vercel.app/",
+    linkText: "Visit Live Site"
+  },
+  {
+    title: "Brew & Soul",
+    description: "An artisanal coffee cafe portal featuring a custom animated preloader, dynamic interactive menu with tab filters, and a responsive client feedback testimonial carousel.",
+    tags: ["HTML5", "CSS3", "JavaScript", "Vite", "Web Design"],
+    link: "https://cafe-portal-beta.vercel.app/",
+    linkText: "Visit Live Site"
+  },
+  {
+    title: "Maison Élégance",
+    description: "A premium luxury fashion e-commerce storefront landing page featuring high-fidelity interactive animations, magnetic hover effects, lookbook gallery, and interactive shopping cart.",
+    tags: ["HTML5", "CSS3", "JavaScript", "E-Commerce", "UX/UI"],
+    link: "https://boutique-indol.vercel.app/",
+    linkText: "Visit Live Site"
   }
 ];
 
@@ -46,13 +61,13 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen py-20 px-6 max-w-7xl mx-auto">
       {/* Header */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="mb-16"
       >
         <div className="flex items-center gap-3 mb-4">
-          <motion.span 
+          <motion.span
             className="h-[2px] w-12 bg-gradient-to-r from-cyber-cyan to-transparent"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
@@ -65,7 +80,7 @@ export default function ProjectsPage() {
           Engineering <span className="shimmer-text">Logbook.</span>
         </h1>
         <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
-          A deep dive into the systems I&apos;ve architected—ranging from low-level 
+          A deep dive into the systems I&apos;ve architected—ranging from low-level
           digital logic to high-level automation and data science tools.
         </p>
       </motion.div>
@@ -77,7 +92,7 @@ export default function ProjectsPage() {
         transition={{ delay: 0.3 }}
         className="flex items-center gap-3 mb-8"
       >
-        <motion.div 
+        <motion.div
           className="w-2 h-2 rounded-full bg-cyber-cyan"
           animate={{ opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -89,7 +104,7 @@ export default function ProjectsPage() {
       </motion.div>
 
       {/* The Projects Grid */}
-      <motion.div 
+      <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
         variants={containerVariants}
         initial="hidden"
@@ -100,11 +115,12 @@ export default function ProjectsPage() {
             key={project.title}
             variants={cardVariants}
           >
-            <ProjectCard 
+            <ProjectCard
               title={project.title}
               description={project.description}
               tags={project.tags}
               link={project.link}
+              linkText={project.linkText}
             />
           </motion.div>
         ))}
