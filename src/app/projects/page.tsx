@@ -106,7 +106,7 @@ export default function ProjectsPage() {
         className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl glass-card border border-cyber-cyan/15 mb-10 bg-[#030614]/70"
       >
         <div className="p-3 border-r border-slate-800 last:border-none">
-          <div className="text-2xl md:text-3xl font-black font-mono text-white">8</div>
+          <div className="text-2xl md:text-3xl font-black font-mono text-white">9</div>
           <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-1">
             Total Projects Indexed
           </div>
@@ -115,7 +115,7 @@ export default function ProjectsPage() {
         <div className="p-3 border-r border-slate-800 last:border-none">
           <div className="text-2xl md:text-3xl font-black font-mono text-emerald-400 flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            7
+            8
           </div>
           <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-1">
             Live Deployments

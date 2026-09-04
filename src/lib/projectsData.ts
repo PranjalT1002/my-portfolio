@@ -142,6 +142,22 @@ export const ALL_PROJECTS: Project[] = [
     featured: false,
     metrics: ["Kinetic 3D tilt mechanics", "Modern agency design system", "Client discovery funnels"],
     systemCode: "SYS-08"
+  },
+  {
+    id: "summit-trek",
+    title: "Summit Trek",
+    subtitle: "Premier Himalayan Expedition Booking Platform",
+    description:
+      "A full-stack Himalayan trekking expedition portal featuring real-time expedition catalog with availability tracking, multi-role authentication (Admin/Guide/Trekker), an executive analytics dashboard with revenue & booking insights, and day-by-day itinerary detail views.",
+    category: "fullstack",
+    categoryLabel: "Full-Stack & Travel Tech",
+    status: "Live Production",
+    tags: ["React", "Vite", "Tailwind CSS", "Role-Based Auth", "Admin Dashboard", "REST APIs"],
+    link: "https://summit-trek-beryl.vercel.app/",
+    linkText: "Explore Summit Trek",
+    featured: true,
+    metrics: ["8 verified Himalayan expedition routes", "Executive command analytics dashboard", "Multi-role RBAC portal (Admin/Guide/Trekker)"],
+    systemCode: "SYS-09"
   }
 ];
 
