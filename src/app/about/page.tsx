@@ -76,7 +76,7 @@ export default function AboutPage() {
             This dual background bridges low-level systems engineering with modern statistical data analysis.
           </p>
           <p>
-            Over the past year, I&apos;ve built and deployed 8 comprehensive systems—ranging from real-time communication platforms (ConnectHub) and confidential digital voting portals (SwiftFlow) to desktop voice AI assistants (Jarvis) and commercial web portals.
+            Over the past year, I&apos;ve built and deployed 9 comprehensive systems—ranging from real-time communication platforms (ConnectHub) and confidential digital voting portals (SwiftFlow) to AI weather intelligence platforms (WeatherGPT), desktop voice AI assistants (Jarvis) and commercial web portals.
           </p>
 
           <motion.div
@@ -100,7 +100,7 @@ export default function AboutPage() {
               href="/projects"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full glass-card border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 font-mono text-xs uppercase tracking-wider transition-all"
             >
-              <span>Explore 8 Projects</span>
+              <span>Explore 9 Projects</span>
               <span>→</span>
             </Link>
           </motion.div>

@@ -113,7 +113,7 @@ export default function Home() {
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(0, 240, 255, 0.3)" }}
               className="group flex items-center gap-3 px-6 py-3.5 rounded-full glass-card hover:border-cyber-cyan/50 transition-all cursor-pointer"
             >
-              <span className="text-sm font-bold text-white">View All 8 Projects</span>
+              <span className="text-sm font-bold text-white">View All 9 Projects</span>
               <ArrowRight size={18} className="group-hover:translate-x-1.5 transition-transform text-cyber-cyan" />
             </motion.div>
           </Link>
@@ -156,7 +156,7 @@ export default function Home() {
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="text-lg font-bold text-white flex items-center justify-center sm:justify-start gap-2">
               <span>Looking for the complete technical catalog?</span>
-              <span className="text-cyber-cyan font-mono text-xs px-2 py-0.5 rounded bg-cyber-cyan/10">8 TOTAL</span>
+              <span className="text-cyber-cyan font-mono text-xs px-2 py-0.5 rounded bg-cyber-cyan/10">9 TOTAL</span>
             </h4>
             <p className="text-slate-400 text-sm">
               Includes Python desktop AI systems, NGO platforms, creative agencies, and source repositories.

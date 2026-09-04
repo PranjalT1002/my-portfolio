@@ -18,7 +18,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects", badge: "8" },
+    { name: "Projects", href: "/projects", badge: "9" },
     { name: "About", href: "/about" },
     { name: "Education", href: "/education", badge: "Dual" },
   ];

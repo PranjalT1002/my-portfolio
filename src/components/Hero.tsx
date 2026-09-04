@@ -102,7 +102,7 @@ export default function Hero() {
             transition={{ duration: 2, repeat: Infinity }}
           />
           <span className="font-mono text-xs text-cyber-cyan font-bold uppercase tracking-wider">
-            Available for Software & Club Leadership Roles
+
           </span>
           <span className="text-slate-600 hidden sm:inline">|</span>
           <span className="font-mono text-[11px] text-slate-400 hidden sm:inline">
@@ -156,7 +156,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.96 }}
                 className="px-8 py-4 bg-white text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-cyber-cyan hover:text-black transition-all flex items-center gap-3 shadow-[0_0_20px_rgba(255,255,255,0.15)] group"
               >
-                <span>View All 8 Projects</span>
+                <span>View All 9 Projects</span>
                 <ArrowRight size={17} className="group-hover:translate-x-1.5 transition-transform text-black" />
               </motion.div>
             </Link>
@@ -198,7 +198,7 @@ export default function Hero() {
           >
             <div className="p-3 border-r border-slate-800/80 last:border-none">
               <div className="text-2xl font-black text-white font-mono flex items-center gap-1">
-                8<span className="text-cyber-cyan">+</span>
+                9<span className="text-cyber-cyan">+</span>
               </div>
               <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mt-0.5">
                 Shipped Systems
