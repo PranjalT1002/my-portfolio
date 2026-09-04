@@ -112,19 +112,19 @@ export const ALL_PROJECTS: Project[] = [
     systemCode: "SYS-06"
   },
   {
-    id: "portfolio",
-    title: "Cyberpunk Command Center",
-    subtitle: "Personal Engineering Portfolio & Telemetry",
+    id: "weathergpt",
+    title: "WeatherGPT",
+    subtitle: "AI Meteorological Intelligence & Early Warning Workstation",
     description:
-      "State-of-the-art developer portfolio designed with terminal telemetry aesthetics, interactive mouse canvas particle physics, dual-degree academic logging, and zero-compromise dark mode UX.",
-    category: "fullstack",
-    categoryLabel: "Systems Portfolio",
+      "An AI-powered weather intelligence and disaster early warning platform featuring a multi-lingual conversational AI assistant (10 Indian languages with STT/TTS), live GIS precipitation radar, 7-day NWP forecasts (GFS/ECMWF), sector decision-support for Agriculture, Aviation, Marine & Disaster, and decadal climate analytics.",
+    category: "ai",
+    categoryLabel: "AI & Weather Intelligence",
     status: "Live Production",
-    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Cyberpunk UI"],
-    link: "https://my-portfolio-woad-six-75.vercel.app/",
-    linkText: "Visit Live Portfolio",
-    featured: false,
-    metrics: ["Dynamic canvas particle field", "Dual-degree academic roadmap", "Interactive spotlight shaders"],
+    tags: ["React", "Next.js", "Tailwind CSS", "Leaflet.js", "Open-Meteo API", "Web Speech API"],
+    link: "https://weathergpt-xi-five.vercel.app/",
+    linkText: "Launch WeatherGPT",
+    featured: true,
+    metrics: ["10-language AI conversational assistant", "Live GIS precipitation radar with playback", "4-sector decision-support engine"],
     systemCode: "SYS-07"
   },
   {
