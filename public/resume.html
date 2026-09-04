@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranjal Tripathi — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0f172a;
+      --accent-blue: #2563eb;
+      --accent-indigo: #4f46e5;
+      --accent-cyan: #0891b2;
+      --accent-emerald: #059669;
+      --accent-violet: #7c3aed;
+      --accent-rose: #e11d48;
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border: #e2e8f0;
+      --bg-subtle: #f8fafc;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: #e2e8f0;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .resume-page {
+      width: 210mm;
+      height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .resume-page:last-child {
+      page-break-after: auto;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .resume-page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+      }
+    }
+
+    /* ─── Header ─── */
+    .header {
+      background: linear-gradient(135deg, #1e3a5f, #0f172a);
+      padding: 18px 34px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      color: #fff;
+    }
+
+    .header h1 {
+      font-size: 29px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .header .tagline {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #60a5fa;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .header-right {
+      text-align: right;
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .header-right a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .page2-header {
+      background: linear-gradient(135deg, #1e3a5f, #0f172a);
+      padding: 10px 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+    }
+
+    .page2-header .name {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .page2-header .page-label {
+      font-size: 10px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    /* ─── Content ─── */
+    .page-content {
+      padding: 16px 34px 14px;
+      position: relative;
+    }
+
+    /* ─── Section Titles ─── */
+    .section {
+      margin-bottom: 9px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--primary);
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid var(--border);
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .accent-bar {
+      width: 3.5px;
+      height: 13px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .ab-blue {
+      background: var(--accent-blue);
+    }
+
+    .ab-emerald {
+      background: var(--accent-emerald);
+    }
+
+    .ab-violet {
+      background: var(--accent-violet);
+    }
+
+    .ab-cyan {
+      background: var(--accent-cyan);
+    }
+
+    .ab-indigo {
+      background: var(--accent-indigo);
+    }
+
+    /* ─── Summary ─── */
+    .summary {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .summary strong {
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    /* ─── Education ─── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .edu-card {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-blue);
+      background: var(--bg-subtle);
+    }
+
+    .edu-card.emerald {
+      border-left-color: var(--accent-emerald);
+    }
+
+    .edu-card .institution {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .edu-card .degree {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    .edu-card .meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .edu-card .cgpa {
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .cgpa-blue {
+      color: var(--accent-blue);
+    }
+
+    .cgpa-emerald {
+      color: var(--accent-emerald);
+    }
+
+    .edu-extra {
+      margin-top: 5px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .edu-extra strong {
+      color: var(--text-secondary);
+    }
+
+    /* ─── Skills ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .skill-group h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    .sg-blue h4 {
+      color: var(--accent-blue);
+    }
+
+    .sg-cyan h4 {
+      color: var(--accent-cyan);
+    }
+
+    .sg-violet h4 {
+      color: var(--accent-violet);
+    }
+
+    .sg-emerald h4 {
+      color: var(--accent-emerald);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-weight: 500;
+      border: 1px solid;
+    }
+
+    .st-blue {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .st-cyan {
+      background: #ecfeff;
+      border-color: #a5f3fc;
+      color: #0e7490;
+    }
+
+    .st-violet {
+      background: #f5f3ff;
+      border-color: #c4b5fd;
+      color: #6d28d9;
+    }
+
+    .st-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      color: #047857;
+    }
+
+    /* ─── Projects ─── */
+    .project {
+      margin-bottom: 7px;
+      padding: 6px 9px;
+      border-radius: 5px;
+      border-left: 3px solid var(--border);
+      background: var(--bg-subtle);
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .project .tech {
+      font-size: 11.5px;
+      font-weight: 600;
+      margin-top: 0px;
+      color: var(--accent-blue);
+    }
+
+    .project .link {
+      font-size: 11.5px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--accent-blue);
+    }
+
+    .project ul {
+      margin-top: 2px;
+      padding-left: 14px;
+    }
+
+    .project ul li {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 1px;
+    }
+
+    .p-blue {
+      border-left-color: var(--accent-blue);
+    }
+
+    .p-cyan {
+      border-left-color: var(--accent-cyan);
+    }
+
+    .p-indigo {
+      border-left-color: var(--accent-indigo);
+    }
+
+    .p-emerald {
+      border-left-color: var(--accent-emerald);
+    }
+
+    .p-violet {
+      border-left-color: var(--accent-violet);
+    }
+
+    .p-rose {
+      border-left-color: var(--accent-rose);
+    }
+
+    /* ─── DevOps Grid ─── */
+    .skills-grid-wide {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    /* ─── Footer ─── */
+    .resume-footer {
+      position: absolute;
+      bottom: 14px;
+      left: 34px;
+      right: 34px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5px;
+      color: var(--text-muted);
+    }
+
+    .resume-footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* ─── Highlights ─── */
+    .highlight-item {
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 3px;
+      padding-left: 11px;
+      position: relative;
+    }
+
+    .highlight-item .arrow {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    .highlight-item strong {
+      color: #0f172a;
+    }
+
+    .cont-label {
+      font-weight: 500;
+      font-size: 11px;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════ PAGE 1 ═══════════ -->
+  <div class="resume-page">
+    <header class="header">
+      <div class="header-left">
+        <h1>Pranjal Tripathi</h1>
+        <div class="tagline">Computer Science &amp; Data Science · Dual Degree</div>
+      </div>
+      <div class="header-right">
+        <div>pranjallko06@gmail.com · +91 84678 53399</div>
+        <div><a href="https://github.com/PranjalT1002">github.com/PranjalT1002</a> · <a
+            href="https://linkedin.com/in/pranjal-tripathi-iitm-bennett">LinkedIn</a></div>
+        <div><a href="https://my-portfolio-woad-six-75.vercel.app">my-portfolio-woad-six-75.vercel.app</a> · Greater
+          Noida, India</div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <section class="section">
+        <h2 class="section-title"><span class="accent-bar ab-blue"></span>Profile Summary</h2>
+        <p class="summary">
+          Second-year Computer Science student at Bennett University simultaneously pursuing a BS in Data Science from
+          IIT Madras.
+          Experienced in shipping production-quality web applications — with <strong>9 deployed projects</strong> across
+          full-stack, AI-driven
+          platforms, UI/UX, and automation. Combines deep technical fluency with a builder's mindset and the ability to
+          lead teams from ideation to deployment.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="accent-bar ab-emerald"></span>Education</h2>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <div class="institution">Bennett University</div>
+            <div class="degree">B.Tech in Computer Science Engineering</div>
+            <div class="meta">
+              <span>2025 — 2029 · Greater Noida</span>
+              <span class="cgpa cgpa-blue">CGPA: 9.28</span>
+            </div>
+          </div>
+          <div class="edu-card emerald">
+            <div class="institution">IIT Madras</div>
+            <div class="degree">BS in Data Science &amp; Applications</div>
+            <div class="meta">
+              <span>2025 — Present · Remote</span>
+              <span class="cgpa cgpa-emerald">CGPA: 8.13</span>
+            </div>
+          </div>
+        </div>
+        <div class="edu-extra">
+          <strong>JEE Mains 2025:</strong> 94 Percentile &nbsp;·&nbsp;
+          <strong>Class 12 (ISC):</strong> 95.25% &nbsp;·&nbsp;
+          <strong>Class 10 (ICSE):</strong> 94.6% — City Montessori School, Lucknow
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="accent-bar ab-violet"></span>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group sg-blue">
+            <h4>Languages</h4>
+            <div class="skill-tags">
+              <span class="skill-tag st-blue">Python</span>
+              <span class="skill-tag st-blue">JavaScript</span>
+              <span class="skill-tag st-blue">Java</span>
+              <span class="skill-tag st-blue">C++</span>
+              <span class="skill-tag st-blue">SQL</span>
+              <span class="skill-tag st-blue">HTML/CSS</span>
+            </div>
+          </div>
+          <div class="skill-group sg-cyan">
+            <h4>Frameworks &amp; Tools</h4>
+            <div class="skill-tags">
+              <span class="skill-tag st-cyan">React</span>
+              <span class="skill-tag st-cyan">Next.js</span>
+              <span class="skill-tag st-cyan">Node.js</span>
+              <span class="skill-tag st-cyan">Vite</span>
+              <span class="skill-tag st-cyan">Tailwind CSS</span>
+              <span class="skill-tag st-cyan">Express</span>
+            </div>
+          </div>
+          <div class="skill-group sg-violet">
+            <h4>Databases &amp; AI</h4>
+            <div class="skill-tags">
+              <span class="skill-tag st-violet">MongoDB</span>
+              <span class="skill-tag st-violet">PostgreSQL</span>
+              <span class="skill-tag st-violet">Firebase</span>
+              <span class="skill-tag st-violet">Supabase</span>
+              <span class="skill-tag st-violet">Pandas</span>
+              <span class="skill-tag st-violet">NumPy</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="accent-bar ab-cyan"></span>Projects</h2>
+
+        <div class="project p-blue">
+          <div class="project-header">
+            <h4>ConnectHub — Real-time Communication Platform</h4>
+            <a class="link" href="https://connect-hub-kdpm.onrender.com/"
+              target="_blank">connect-hub-kdpm.onrender.com</a>
+          </div>
+          <div class="tech">React · Node.js · WebSockets · WebRTC · Express</div>
+          <ul>
+            <li>Engineered a secure, real-time communication platform featuring sub-50ms messaging, channel
+              collaboration, and P2P voice/video calling.</li>
+            <li>Implemented low-latency socket communication, live user presence indicators, and rich media sharing.
+            </li>
+          </ul>
+        </div>
+
+        <div class="project p-indigo">
+          <div class="project-header">
+            <h4>SwiftFlow — Digital Voting &amp; Governance Portal</h4>
+            <a class="link" href="https://swiftflow-x3pw.onrender.com/" target="_blank">swiftflow-x3pw.onrender.com</a>
+          </div>
+          <div class="tech">Full-Stack · Auth &amp; RBAC · PostgreSQL · Cryptographic Security · REST APIs</div>
+          <ul>
+            <li>Built a certified electronic voting portal with end-to-end cryptographic ballot integrity and voter
+              identity verification.</li>
+            <li>Implemented role-based electoral governance with real-time auditing and confidential ballot casting.
+            </li>
+          </ul>
+        </div>
+
+        <div class="project p-violet">
+          <div class="project-header">
+            <h4>WeatherGPT — AI Weather &amp; Disaster Warning Platform</h4>
+            <a class="link" href="https://weathergpt-xi-five.vercel.app/"
+              target="_blank">weathergpt-xi-five.vercel.app</a>
+          </div>
+          <div class="tech">React · Next.js · Tailwind CSS · Leaflet.js · Open-Meteo API · Web Speech API</div>
+          <ul>
+            <li>Built an AI-powered weather intelligence workstation with multi-lingual conversational AI (10 Indian
+              languages), STT/TTS, and live GIS radar.</li>
+            <li>Engineered sector-specific decision-support for Agriculture, Aviation, Marine &amp; Disaster with 7-day
+              NWP forecasts.</li>
+          </ul>
+        </div>
+
+        <div class="project p-emerald">
+          <div class="project-header">
+            <h4>Summit Trek — Himalayan Expedition Platform</h4>
+            <a class="link" href="https://summit-trek-beryl.vercel.app/"
+              target="_blank">summit-trek-beryl.vercel.app</a>
+          </div>
+          <div class="tech">React · Vite · Tailwind CSS · Role-Based Auth · REST APIs</div>
+          <ul>
+            <li>Developed a full-stack expedition booking platform with multi-role RBAC (Admin/Guide/Trekker), executive
+              analytics dashboard, and itinerary views.</li>
+          </ul>
+        </div>
+
+        <div class="project p-cyan">
+          <div class="project-header">
+            <h4>Brew &amp; Soul — Artisanal Café Portal</h4>
+            <a class="link" href="https://cafe-portal-beta.vercel.app/" target="_blank">cafe-portal-beta.vercel.app</a>
+          </div>
+          <div class="tech">HTML5 · CSS3 · JavaScript · Vite</div>
+          <ul>
+            <li>Built a cafe portal with custom animated preloader, dynamic interactive menu with category filters, and
+              a real-time cart system.</li>
+          </ul>
+        </div>
+
+      </section>
+      <br>
+      <br>
+      <div class="resume-footer">
+        <span>Pranjal Tripathi · Resume · Page 1 of 2 · September 2026</span>
+        <a href="https://github.com/PranjalT1002" target="_blank">github.com/PranjalT1002</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGE 2 ═══════════ -->
+  <div class="resume-page">
+    <div class="page2-header">
+      <span class="name">Pranjal Tripathi</span>
+      <span class="page-label">Page 2 of 2</span>
+    </div>
+
+    <div class="page-content">
+
+      <section class="section">
+        <h2 class="section-title"><span class="accent-bar ab-cyan"></span>Projects <span
+            class="cont-label">(continued)</span></h2>
+
+        <div class="project p-rose">
+          <div class="project-header">
+            <h4>Maison Élégance — Luxury E-Commerce Storefront</h4>
+            <a class="link" href="https://boutique-indol.vercel.app/" target="_blank">boutique-indol.vercel.app</a>
+          </div>
+          <div class="tech">HTML5 · CSS3 · JavaScript · E-Commerce UX · Glassmorphism</div>
+          <ul>
+            <li>Crafted a premium fashion e-commerce landing page with high-fidelity interactive animations, magnetic
+              hover effects, and a lookbook gallery.</li>
+            <li>Implemented interactive shopping cart UI, newsletter signup, and customer testimonials with polished
+              typography.</li>
+          </ul>
+        </div>
+
+        <div class="project p-violet">
+          <div class="project-header">
+            <h4>Jarvis AI Assistant — Desktop Voice Intelligence</h4>
+            <a class="link" href="https://github.com/PranjalT1002/Jarvis-AI" target="_blank">GitHub</a>
+          </div>
+          <div class="tech">Python · PyQt6 · Ollama (Llama 3.2) · Faster-Whisper · System Automation</div>
+          <ul>
+            <li>Built a multi-threaded local AI desktop assistant with a transparent sci-fi HUD, powered by a local
+              neural core (Ollama Llama 3.2) and real-time STT.</li>
+            <li>Integrated autonomous OS script triggers, system controls, and voice-to-text pipeline for hands-free
+              operation.</li>
+          </ul>
+        </div>
+
+        <div class="project p-emerald">
+          <div class="project-header">
+            <h4>Antarbhag Foundation — Environmental Education Portal</h4>
+            <a class="link" href="https://antarbhag-website.vercel.app" target="_blank">antarbhag-website.vercel.app</a>
+          </div>
+          <div class="tech">HTML5 · CSS3 · JavaScript · Social Impact · Responsive Design</div>
+          <ul>
+            <li>Designed and deployed a social initiative website for Antarbhag Foundation featuring environmental
+              outreach campaigns, volunteer enrollment, and community engagement.</li>
+          </ul>
+        </div>
+
+        <div class="project p-blue">
+          <div class="project-header">
+            <h4>Locus Path — Creative Agency Website</h4>
+            <a class="link" href="https://locus-path-web.vercel.app/" target="_blank">locus-path-web.vercel.app</a>
+          </div>
+          <div class="tech">HTML5 · CSS3 · JavaScript · Creative Direction · 3D Tilt UI</div>
+          <ul>
+            <li>Designed and shipped a fully interactive creative agency landing page with magnetic CTA buttons, 3D card
+              tilt mechanics, and smooth scroll animations.</li>
+            <li>Multi-section architecture: Services, Process, Portfolio, Testimonials, and Contact — all with custom
+              CSS animations.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="accent-bar ab-indigo"></span>Deployment &amp; DevOps</h2>
+        <div class="skills-grid-wide">
+          <div class="skill-group sg-cyan">
+            <h4>Platforms</h4>
+            <div class="skill-tags">
+              <span class="skill-tag st-cyan">Vercel</span>
+              <span class="skill-tag st-cyan">Render</span>
+              <span class="skill-tag st-cyan">GitHub Pages</span>
+            </div>
+          </div>
+          <div class="skill-group sg-blue">
+            <h4>Version Control</h4>
+            <div class="skill-tags">
+              <span class="skill-tag st-blue">Git</span>
+              <span class="skill-tag st-blue">GitHub</span>
+              <span class="skill-tag st-blue">CI/CD</span>
+            </div>
+          </div>
+          <div class="skill-group sg-emerald">
+            <h4>Protocols</h4>
+            <div class="skill-tags">
+              <span class="skill-tag st-emerald">REST APIs</span>
+              <span class="skill-tag st-emerald">WebSockets</span>
+              <span class="skill-tag st-emerald">WebRTC</span>
+            </div>
+          </div>
+          <div class="skill-group sg-violet">
+            <h4>Design</h4>
+            <div class="skill-tags">
+              <span class="skill-tag st-violet">Figma</span>
+              <span class="skill-tag st-violet">Responsive UI</span>
+              <span class="skill-tag st-violet">Framer Motion</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="accent-bar ab-emerald"></span>Key Highlights</h2>
+        <div class="highlight-item">
+          <span class="arrow" style="color: #2563eb;">›</span>
+          <strong>9 production-grade projects</strong> shipped — 8 live-deployed on Vercel and Render across full-stack,
+          AI, and front-end domains.
+        </div>
+        <div class="highlight-item">
+          <span class="arrow" style="color: #059669;">›</span>
+          <strong>Dual-degree</strong> academic track: Bennett University (B.Tech CSE, 9.28 CGPA) + IIT Madras (BS Data
+          Science, 8.13 CGPA).
+        </div>
+        <div class="highlight-item">
+          <span class="arrow" style="color: #7c3aed;">›</span>
+          <strong>Full-stack versatility:</strong> Real-time WebSocket/WebRTC systems, AI platforms with multi-lingual
+          voice, cryptographic security, and e-commerce UX.
+        </div>
+        <div class="highlight-item">
+          <span class="arrow" style="color: #0891b2;">›</span>
+          <strong>Strong academic foundation:</strong> JEE Mains 94 Percentile, ISC 95.25%, ICSE 94.6%.
+        </div>
+      </section>
+      <br>
+      <br>
+
+      <div class="resume-footer">
+        <span>Pranjal Tripathi · Resume · Page 2 of 2 · September 2026</span>
+        <a href="https://my-portfolio-woad-six-75.vercel.app" target="_blank">my-portfolio-woad-six-75.vercel.app</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
