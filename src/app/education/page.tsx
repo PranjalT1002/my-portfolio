@@ -1,7 +1,8 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Award, Calendar, MapPin, ChevronDown, ChevronUp, GraduationCap, School, Binary } from "lucide-react";
+import { BookOpen, Award, Calendar, MapPin, ChevronDown, ChevronUp, GraduationCap, School, Binary, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 type Semester = {
   id: string;
@@ -15,7 +16,7 @@ type EducationItem = {
   degree: string;
   duration: string;
   location: string;
-  color: "cyan" | "emerald" | "purple" | "blue";
+  theme: "cyan" | "emerald" | "purple" | "blue";
   icon: React.ReactNode;
   score?: string;
   description?: string;
@@ -28,86 +29,139 @@ const educationData: EducationItem[] = [
     degree: "B.Tech in Computer Science Engineering",
     duration: "2025 — 2029",
     location: "Greater Noida, India",
-    color: "cyan",
+    theme: "cyan",
     icon: <GraduationCap size={24} />,
     score: "Year 1 Completed: 9.28 CGPA",
-    description: "Focusing on core software engineering, digital logic design, and full-stack development.",
+    description:
+      "Focusing on core systems programming, software architecture, object-oriented design in Java, digital logic simulation in Verilog, and database management.",
     semesters: [
       {
         id: "sem-1",
-        name: "Semester 1",
-        sgpa: "TBD",
-        courses: ["Data Structures", "Digital Design (Verilog)", "Discrete Math", "Java Programming"]
+        name: "Academic Year 1",
+        sgpa: "9.28 CGPA",
+        courses: [
+          "Data Structures & Algorithms",
+          "Digital Logic Design (Verilog)",
+          "Discrete Mathematics",
+          "Object-Oriented Programming (Java)",
+          "Computer Networks Fundamentals"
+        ]
       }
-      // Add more semesters here as they complete
     ]
   },
   {
-    institution: "IIT Madras",
+    institution: "IIT Madras (Indian Institute of Technology)",
     degree: "BS in Data Science and Applications",
     duration: "2025 — Present",
-    location: "Remote/Chennai, India",
-    color: "emerald",
+    location: "Chennai / Hybrid, India",
+    theme: "emerald",
     icon: <Binary size={24} />,
     score: "Year 1 Completed: 8.13 CGPA",
-    description: "Deep diving into statistical modeling, computational thinking, and large-scale data analysis.",
+    description:
+      "Deep mathematical focus on computational thinking, applied statistics, linear algebra, Python data modeling, and algorithmic foundations.",
     semesters: [
       {
         id: "sem-1",
-        name: "Semester 1",
-        sgpa: "TBD",
-        courses: ["Python for Data Science", "Statistics", "Computational Thinking", "Linear Algebra"]
+        name: "Academic Year 1",
+        sgpa: "8.13 CGPA",
+        courses: [
+          "Mathematics for Data Science",
+          "Statistics & Probability",
+          "Python for Data Science",
+          "Computational Thinking",
+          "Linear Algebra & Optimization"
+        ]
       }
-      // Add more semesters here as they complete
     ]
   },
   {
     institution: "JEE Preparation Drop Year",
-    degree: "Self-Study & Intensive Preparation",
+    degree: "Self-Study & Advanced Mathematics / Physics",
     duration: "2024 — 2025",
     location: "Lucknow, India",
-    color: "purple",
+    theme: "purple",
     icon: <BookOpen size={24} />,
-    score: "JEE Mains 2025: 94 Percentile",
-    description: "Dedicated a year to rigorous academic preparation focusing on Physics, Chemistry, and Advanced Mathematics, developing strong analytical and problem-solving skills."
+    score: "JEE Mains: 94 Percentile",
+    description:
+      "Dedicated an intensive year to mastering advanced physical sciences, calculus, and analytical problem-solving with extreme discipline.",
   },
   {
-    institution: "City Montessori School",
-    degree: "Class 12 (ISC)",
+    institution: "City Montessori School (CMS)",
+    degree: "Class 12 (ISC Board - Science Stream)",
     duration: "2024",
     location: "Lucknow, India",
-    color: "blue",
+    theme: "blue",
     icon: <School size={24} />,
-    score: "95.25%",
-    description: "Completed senior secondary education with a focus on science and mathematics. Developed foundational skills in programming and logical reasoning."
+    score: "95.25% Aggregate",
+    description:
+      "Completed senior secondary education with high distinction in Physics, Chemistry, Mathematics, and Computer Science.",
   },
   {
-    institution: "City Montessori School",
-    degree: "Class 10 (ICSE)",
+    institution: "City Montessori School (CMS)",
+    degree: "Class 10 (ICSE Board)",
     duration: "2022",
     location: "Lucknow, India",
-    color: "blue",
+    theme: "blue",
     icon: <School size={24} />,
-    score: "94.6%",
-    description: "Built strong fundamentals across all subjects, establishing a robust academic discipline."
+    score: "94.60% Aggregate",
+    description:
+      "Built rigorous academic foundations with distinction across all core academic disciplines.",
   }
 ];
 
-function SemesterCard({ semester, colorClass }: { semester: Semester, colorClass: string }) {
-  const [isOpen, setIsOpen] = useState(false);
+function getThemeStyles(theme: "cyan" | "emerald" | "purple" | "blue") {
+  switch (theme) {
+    case "cyan":
+      return {
+        text: "text-cyber-cyan",
+        border: "border-cyber-cyan/30",
+        bg: "bg-cyber-cyan/10",
+        badge: "bg-cyber-cyan/15 text-cyber-cyan border-cyber-cyan/30",
+        glow: "rgba(0,240,255,0.2)",
+      };
+    case "emerald":
+      return {
+        text: "text-emerald-400",
+        border: "border-emerald-400/30",
+        bg: "bg-emerald-400/10",
+        badge: "bg-emerald-400/15 text-emerald-400 border-emerald-400/30",
+        glow: "rgba(52,211,153,0.2)",
+      };
+    case "purple":
+      return {
+        text: "text-purple-400",
+        border: "border-purple-400/30",
+        bg: "bg-purple-400/10",
+        badge: "bg-purple-400/15 text-purple-400 border-purple-400/30",
+        glow: "rgba(192,132,252,0.2)",
+      };
+    case "blue":
+      return {
+        text: "text-blue-400",
+        border: "border-blue-400/30",
+        bg: "bg-blue-400/10",
+        badge: "bg-blue-400/15 text-blue-400 border-blue-400/30",
+        glow: "rgba(96,165,250,0.2)",
+      };
+  }
+}
+
+function SemesterCard({ semester, theme }: { semester: Semester; theme: "cyan" | "emerald" | "purple" | "blue" }) {
+  const [isOpen, setIsOpen] = useState(true);
+  const styles = getThemeStyles(theme);
 
   return (
-    <div className={`mb-3 border rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? `border-${colorClass}/30 bg-[#050510]` : 'border-slate-800/50 hover:border-slate-700 bg-transparent'}`}>
+    <div className={`mb-3 border rounded-xl overflow-hidden transition-all duration-300 bg-[#02040d]/80 ${styles.border}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 py-3 flex items-center justify-between text-left focus:outline-none"
+        className="w-full px-4 py-3 flex items-center justify-between text-left focus:outline-none hover:bg-white/5"
       >
-        <span className="font-medium text-slate-200">{semester.name}</span>
+        <span className="font-mono text-sm font-bold text-slate-200">{semester.name}</span>
         <div className="flex items-center gap-4">
-          <span className={`text-sm font-mono ${isOpen ? `text-${colorClass}` : 'text-slate-400'}`}>
-            SGPA: {semester.sgpa}
+          <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${styles.badge}`}>
+            {semester.sgpa}
           </span>
-          {isOpen ? <ChevronUp size={16} className={`text-${colorClass}`} /> : <ChevronDown size={16} className="text-slate-500" />}
+          {isOpen ? <ChevronUp size={16} className={styles.text} /> : <ChevronDown size={16} className="text-slate-500" />}
         </div>
       </button>
 
@@ -119,11 +173,16 @@ function SemesterCard({ semester, colorClass }: { semester: Semester, colorClass
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="px-4 pb-4 pt-1 border-t border-slate-800/50">
-              <p className="text-xs uppercase tracking-widest text-slate-500 mb-2 mt-2">Coursework</p>
+            <div className="px-4 pb-4 pt-1 border-t border-slate-800/60">
+              <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-2 mt-2 font-mono">
+                Key Verified Coursework
+              </p>
               <div className="flex flex-wrap gap-2">
-                {semester.courses.map(course => (
-                  <span key={course} className="px-2 py-1 text-xs rounded-md bg-[#0a0a1a] text-slate-300 border border-slate-800">
+                {semester.courses.map((course) => (
+                  <span
+                    key={course}
+                    className="px-2.5 py-1 text-xs rounded-md bg-[#050917] text-slate-300 border border-slate-800 font-mono"
+                  >
                     {course}
                   </span>
                 ))}
@@ -137,18 +196,12 @@ function SemesterCard({ semester, colorClass }: { semester: Semester, colorClass
 }
 
 export default function EducationPage() {
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case 'cyan': return { border: 'cyber-cyan', bg: 'cyber-cyan', text: 'cyber-cyan', shadow: 'rgba(0,240,255,0.6)', gradient: 'from-cyber-cyan/10' };
-      case 'emerald': return { border: 'emerald-400', bg: 'emerald-400', text: 'emerald-400', shadow: 'rgba(52,211,153,0.6)', gradient: 'from-emerald-500/10' };
-      case 'purple': return { border: 'purple-400', bg: 'purple-400', text: 'purple-400', shadow: 'rgba(192,132,252,0.6)', gradient: 'from-purple-500/10' };
-      case 'blue': return { border: 'blue-400', bg: 'blue-400', text: 'blue-400', shadow: 'rgba(96,165,250,0.6)', gradient: 'from-blue-500/10' };
-      default: return { border: 'cyber-cyan', bg: 'cyber-cyan', text: 'cyber-cyan', shadow: 'rgba(0,240,255,0.6)', gradient: 'from-cyber-cyan/10' };
-    }
-  };
-
   return (
-    <main className="min-h-screen py-20 px-6 max-w-5xl mx-auto">
+    <main className="min-h-screen py-28 px-6 max-w-5xl mx-auto relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-cyber-cyan/5 blur-[120px] rounded-full pointer-events-none" />
+
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -162,12 +215,17 @@ export default function EducationPage() {
             transition={{ duration: 0.8 }}
             style={{ transformOrigin: "left" }}
           />
-          <span className="text-cyber-cyan font-mono text-sm tracking-widest uppercase">Academic</span>
+          <span className="text-cyber-cyan font-mono text-sm tracking-widest uppercase font-bold">
+            Academic Track // Roadmap
+          </span>
         </div>
-        <h1 className="text-5xl font-bold mb-4">
+
+        <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tighter">
           Education<span className="text-cyber-cyan animate-blink">_</span>
         </h1>
-        <p className="text-slate-400 text-lg">My academic journey from foundational schooling to dual-degree engineering.</p>
+        <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
+          Concurrent dual-degree progression bridging Computer Science Engineering at Bennett University and Data Science Applications at IIT Madras.
+        </p>
       </motion.div>
 
       {/* Timeline wire */}
@@ -178,53 +236,45 @@ export default function EducationPage() {
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            style={{ originY: 0, background: "linear-gradient(to bottom, rgba(0,240,255,0.4), transparent)" }}
+            style={{ originY: 0, background: "linear-gradient(to bottom, rgba(0,240,255,0.5), rgba(52,211,153,0.3), transparent)" }}
           />
         </div>
 
         <div className="space-y-12">
           {educationData.map((edu, index) => {
-            const colors = getColorClasses(edu.color);
+            const styles = getThemeStyles(edu.theme);
 
             return (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                key={edu.institution + edu.degree}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -25 : 25 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="relative group md:pl-16"
               >
                 {/* Timeline node */}
-                <motion.div
-                  className={`absolute left-4 md:left-6 top-10 w-3 h-3 rounded-full border-2 hidden md:block border-${colors.border} bg-${colors.bg}/20`}
-                  animate={{
-                    boxShadow: ["0 0 0px transparent", `0 0 12px ${colors.shadow}`, "0 0 0px transparent"]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                <div
+                  className={`absolute left-4 md:left-6 top-10 w-3.5 h-3.5 rounded-full border-2 hidden md:block ${styles.border} ${styles.bg}`}
                 />
 
-                {/* Glow backdrop */}
-                <div className={`absolute -inset-1 bg-gradient-to-r ${colors.gradient} to-transparent rounded-3xl blur opacity-0 group-hover:opacity-50 transition duration-700`} />
-
-                <div className="relative glass-card p-6 md:p-10 rounded-3xl">
-
+                <div className="relative glass-card p-7 md:p-10 rounded-3xl border border-cyber-cyan/15 bg-[#030614]/80 corner-brackets">
                   {/* Header Section */}
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                     <div className="flex gap-4 items-start">
-                      <div className={`p-3 rounded-xl bg-${colors.bg}/10 text-${colors.text} border border-${colors.border}/20 mt-1`}>
+                      <div className={`p-3 rounded-xl ${styles.bg} ${styles.text} border ${styles.border} mt-1`}>
                         {edu.icon}
                       </div>
                       <div>
                         <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">{edu.institution}</h2>
-                        <h3 className={`text-lg font-medium text-${colors.text}`}>
+                        <h3 className={`text-lg font-medium ${styles.text}`}>
                           {edu.degree}
                         </h3>
                       </div>
                     </div>
-                    <div className="flex flex-col items-start md:items-end text-sm text-slate-500 font-mono gap-1">
-                      <div className="flex items-center gap-2 bg-[#050510] px-3 py-1 rounded-full border border-slate-800">
-                        <Calendar size={12} className={`text-${colors.text}`} /> {edu.duration}
+                    <div className="flex flex-col items-start md:items-end text-xs text-slate-400 font-mono gap-1.5">
+                      <div className="flex items-center gap-2 bg-[#050917] px-3 py-1 rounded-full border border-slate-800">
+                        <Calendar size={12} className={styles.text} /> {edu.duration}
                       </div>
                       <div className="flex items-center gap-2">
                         <MapPin size={12} /> {edu.location}
@@ -235,12 +285,12 @@ export default function EducationPage() {
                   {/* Highlights/Description */}
                   <div className="mb-6">
                     {edu.score && (
-                      <div className="inline-block mb-3 px-3 py-1 bg-white/5 border border-white/10 rounded-md text-sm font-semibold text-white tracking-wide">
-                        <span className="text-slate-400 font-normal mr-2">Result:</span> {edu.score}
+                      <div className={`inline-block mb-3 px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold tracking-wide ${styles.badge}`}>
+                        {edu.score}
                       </div>
                     )}
                     {edu.description && (
-                      <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+                      <p className="text-slate-300 leading-relaxed text-sm md:text-base">
                         {edu.description}
                       </p>
                     )}
@@ -248,18 +298,17 @@ export default function EducationPage() {
 
                   {/* Semesters Section (If applicable) */}
                   {edu.semesters && edu.semesters.length > 0 && (
-                    <div className="mt-8 pt-6 border-t border-slate-800/50">
-                      <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
-                        <BookOpen size={16} /> Semester Records
+                    <div className="mt-8 pt-6 border-t border-slate-800/60">
+                      <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2 font-mono">
+                        <BookOpen size={15} /> Academic Performance Records
                       </h4>
                       <div className="space-y-2">
                         {edu.semesters.map((sem) => (
-                          <SemesterCard key={sem.id} semester={sem} colorClass={colors.text} />
+                          <SemesterCard key={sem.id} semester={sem} theme={edu.theme} />
                         ))}
                       </div>
                     </div>
                   )}
-
                 </div>
               </motion.div>
             );
@@ -267,23 +316,35 @@ export default function EducationPage() {
         </div>
       </div>
 
-      {/* Continuous Learning */}
+      {/* Footer CTA */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-24 p-12 rounded-3xl glass-card text-center corner-brackets"
+        className="mt-20 p-10 rounded-3xl glass-card border border-cyber-cyan/20 text-center corner-brackets bg-[#040818]/70"
       >
-        <motion.div
-          animate={{ rotate: [0, 10, -10, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-        >
-          <Award className="mx-auto mb-4 text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.4)]" size={32} />
-        </motion.div>
-        <h3 className="text-xl font-bold mb-2">Continuous Pursuit of Knowledge</h3>
-        <p className="text-slate-400">
-          The journey of education never truly ends. Constantly exploring new boundaries in computation and data.
+        <Award className="mx-auto mb-4 text-cyber-cyan drop-shadow-[0_0_12px_rgba(0,240,255,0.6)]" size={36} />
+        <h3 className="text-2xl font-bold mb-2 text-white">Dual-Discipline Commitment</h3>
+        <p className="text-slate-300 max-w-xl mx-auto mb-6 text-sm">
+          Balancing systems software engineering with data science methodologies to build resilient, next-generation computational products.
         </p>
+        <div className="flex justify-center gap-4">
+          <Link
+            href="/projects"
+            className="px-6 py-2.5 rounded-full bg-cyber-cyan text-black font-mono text-xs font-bold uppercase tracking-wider hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all"
+          >
+            Inspect Built Systems
+          </Link>
+          <a
+            href="/resume.pdf"
+            download="resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2.5 rounded-full glass-card border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs uppercase tracking-wider hover:bg-cyber-cyan/10 transition-all"
+          >
+            Download Resume
+          </a>
+        </div>
       </motion.section>
     </main>
   );

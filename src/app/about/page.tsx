@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { Code2, Database, Cpu, Terminal } from "lucide-react";
+import { Code2, Database, Cpu, Terminal, FileDown, Sparkles, Binary, Globe } from "lucide-react";
+import Link from "next/link";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -17,14 +18,29 @@ const itemVariants = {
 
 export default function AboutPage() {
   const skills = [
-    { category: "Languages", items: ["Python", "Java", "C++", "Verilog", "SQL", "JavaScript"] },
-    { category: "Frameworks & Tools", items: ["Next.js", "React", "Tailwind CSS", "PyQt", "Git", "Docker"] },
-    { category: "Data Science", items: ["Pandas", "NumPy", "Matplotlib", "Scikit-learn", "Statistical Modeling"] },
-    { category: "Digital Design", items: ["Icarus Verilog", "GTKWave", "Logic Gates", "FPGA Basics"] },
+    {
+      category: "Languages",
+      items: ["Python", "Java", "C++", "Verilog", "SQL", "JavaScript", "TypeScript"],
+    },
+    {
+      category: "Cloud & Databases",
+      items: ["PostgreSQL", "MongoDB", "Supabase", "Firebase", "Vercel", "GitHub"],
+    },
+    {
+      category: "Frameworks & UI",
+      items: ["Next.js 14", "React", "Tailwind CSS", "Vite", "PyQt6", "Framer Motion"],
+    },
+    {
+      category: "AI, Data & Hardware",
+      items: ["Pandas", "NumPy", "Statistical Modeling", "Ollama LLM", "Faster-Whisper", "Icarus Verilog"],
+    },
   ];
 
   return (
-    <main className="min-h-screen py-20 px-6 max-w-4xl mx-auto">
+    <main className="min-h-screen py-28 px-6 max-w-5xl mx-auto relative overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-20 right-10 w-96 h-96 bg-cyber-cyan/5 blur-[120px] rounded-full pointer-events-none" />
+
       {/* 1. THE NARRATIVE */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
@@ -39,57 +55,59 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             style={{ transformOrigin: "left" }}
           />
-          <span className="text-cyber-cyan font-mono text-sm tracking-widest uppercase">Profile</span>
+          <span className="text-cyber-cyan font-mono text-sm tracking-widest uppercase font-bold">
+            Engineering Dossier
+          </span>
         </div>
-        <h1 className="text-5xl font-bold mb-8">
-          About <span className="shimmer-text">Me</span>
+
+        <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter">
+          About <span className="shimmer-text">Pranjal</span>
         </h1>
-        <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
+
+        <div className="space-y-6 text-slate-300 text-lg leading-relaxed max-w-3xl">
           <p>
-            Hello! I&apos;m <span className="text-white font-semibold">Pranjal</span>, a developer and engineer
-            driven by the challenge of building systems that are both mathematically sound and
-            practically useful.
+            Hello! I&apos;m <span className="text-white font-semibold">Pranjal</span>, a developer and software engineer
+            driven by the challenge of designing computational architectures that combine rigorous logic with intuitive, high-performance user interfaces.
           </p>
           <p>
-            My academic path is a bit unique. I am currently pursuing a
-            <span className="text-cyber-cyan"> B.Tech in Computer Science</span> while simultaneously
-            earning a <span className="text-emerald-400"> BS in Data Science from IIT Madras</span>.
-            This dual focus allows me to look at problems from two perspectives: the &quot;how&quot; of software
-            architecture and the &quot;why&quot; of data-driven decisions.
+            My academic path merges two high-impact disciplines: I am completing a
+            <span className="text-cyber-cyan font-semibold"> B.Tech in Computer Science at Bennett University (9.28 CGPA Year 1)</span> while simultaneously
+            earning a <span className="text-emerald-400 font-semibold"> BS in Data Science from IIT Madras (8.13 CGPA Year 1)</span>.
+            This dual background bridges low-level systems engineering with modern statistical data analysis.
           </p>
           <p>
-            I believe that the best software isn&apos;t just written—it&apos;s engineered. Whether I&apos;m
-            simulating gate-level logic in <span className="text-white">Verilog</span> or
-            optimizing a database for an accounting platform like <span className="text-white">FinCore</span>,
-            my goal is always precision and efficiency.
+            Over the past year, I&apos;ve built and deployed 8 comprehensive systems—ranging from real-time communication platforms (ConnectHub) and confidential digital voting portals (SwiftFlow) to desktop voice AI assistants (Jarvis) and commercial web portals.
           </p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="pt-6"
+            transition={{ delay: 0.2 }}
+            className="pt-6 flex flex-wrap items-center gap-4"
           >
-            <a 
-              href="/resume.pdf" 
+            <a
+              href="/resume.pdf"
               download="resume.pdf"
               target="_blank"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan hover:text-black font-bold text-sm transition-all duration-300 group"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-cyber-cyan text-black font-bold font-mono text-xs uppercase tracking-wider hover:shadow-[0_0_25px_rgba(0,240,255,0.4)] transition-all duration-300 group"
             >
-              Download Full Resume
-              <motion.span
-                className="inline-block"
-                animate={{ y: [0, 2, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                ↓
-              </motion.span>
+              <FileDown size={16} />
+              <span>Download Official Resume</span>
             </a>
+
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full glass-card border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 font-mono text-xs uppercase tracking-wider transition-all"
+            >
+              <span>Explore 8 Projects</span>
+              <span>→</span>
+            </Link>
           </motion.div>
         </div>
       </motion.section>
 
-      {/* 2. THE PHILOSOPHY (Icon Grid) */}
+      {/* 2. CORE PILLARS (Icon Grid) */}
       <motion.section
         className="grid md:grid-cols-2 gap-6 mb-24"
         variants={containerVariants}
@@ -98,102 +116,46 @@ export default function AboutPage() {
         viewport={{ once: true }}
       >
         {[
-          { icon: <Cpu size={24} />, title: "Low-Level Thinking", desc: "Understanding the silicon through Digital Design and Verilog." },
-          { icon: <Terminal size={24} />, title: "Automation", desc: "Building assistants like Jarvis to bridge the gap between human and machine." },
-          { icon: <Database size={24} />, title: "Data Integrity", desc: "Architecting robust systems where every bit of data has a purpose." },
-          { icon: <Code2 size={24} />, title: "Modern Web", desc: "Crafting performant, beautiful interfaces using Next.js and Tailwind." },
+          {
+            icon: <Globe size={24} />,
+            title: "Full-Stack Real-Time Systems",
+            desc: "Architecting WebSocket concurrency, WebRTC channels, and robust authentication in modern production deployments.",
+          },
+          {
+            icon: <Terminal size={24} />,
+            title: "Autonomous AI & Voice",
+            desc: "Integrating local LLM inference (Ollama) and Whisper speech processing with custom desktop PyQt neural HUDs.",
+          },
+          {
+            icon: <Database size={24} />,
+            title: "Cloud & Data Integrity",
+            desc: "Managing high-integrity relational schemas in PostgreSQL, Supabase, and MongoDB with audit trails.",
+          },
+          {
+            icon: <Cpu size={24} />,
+            title: "Hardware & Logic Verification",
+            desc: "Understanding computation from the ground up through gate-level Verilog simulation and digital design.",
+          },
         ].map((item) => (
           <motion.div
             key={item.title}
             variants={itemVariants}
             whileHover={{
               scale: 1.02,
-              boxShadow: "0 0 25px rgba(0, 240, 255, 0.1)",
+              boxShadow: "0 0 25px rgba(0, 240, 255, 0.12)",
             }}
-            className="p-6 rounded-2xl glass-card corner-brackets hover:border-cyber-cyan/20 transition-all duration-300"
+            className="p-7 rounded-2xl glass-card corner-brackets border border-cyber-cyan/15 hover:border-cyber-cyan/30 transition-all duration-300"
           >
             <div className="text-cyber-cyan mb-4">{item.icon}</div>
-            <h3 className="text-white font-bold mb-2">{item.title}</h3>
-            <p className="text-slate-400 text-sm">{item.desc}</p>
+            <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
           </motion.div>
         ))}
       </motion.section>
 
-      {/* 2.5 CURRENT FOCUS AND PHILOSOPHY */}
-      <section className="mb-24">
-        <div className="grid md:grid-cols-2 gap-12">
-
-          {/* Current Focus */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h2 className="text-2xl font-bold flex items-center gap-3">
-              <span className="text-cyber-cyan font-mono text-lg">{">"}</span>
-              Currently Focused On
-            </h2>
-            <div className="p-8 rounded-3xl glass-card space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="p-2 bg-cyber-cyan/10 rounded-lg text-cyber-cyan mt-1">
-                  <Terminal size={18} />
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Deep Learning & AI Integration</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Exploring transformer models and neural networks as part of the IITM Data Science curriculum, finding ways to integrate LLMs into practical software tools.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4 pt-4 border-t border-slate-800">
-                <div className="p-2 bg-emerald-400/10 rounded-lg text-emerald-400 mt-1">
-                  <Cpu size={18} />
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-1">Algorithm Optimization</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Sharpening problem-solving skills through competitive programming concepts and working on writing logic that executes with minimal time complexity.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Design Philosophy */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h2 className="text-2xl font-bold flex items-center gap-3">
-              <span className="text-emerald-400 font-mono text-lg">{">"}</span>
-              Design Aesthetic
-            </h2>
-            <div className="p-8 rounded-3xl glass-card relative overflow-hidden group">
-              <div className="absolute -right-10 -top-10 w-40 h-40 bg-cyber-cyan/5 blur-3xl rounded-full group-hover:bg-cyber-cyan/10 transition-all duration-700" />
-              <div className="relative z-10 space-y-4 text-slate-300 text-sm leading-relaxed">
-                <p>
-                  I have a strong preference for <span className="text-white">dark, immersive interfaces</span> inspired by terminal environments and cyberpunk aesthetics.
-                </p>
-                <p>
-                  I believe tools and portfolios shouldn&apos;t just be readable—they should feel like operating a high-end piece of hardware. I heavily utilize <span className="text-cyber-cyan">neon accents</span>, deep blacks, and monospace typography to achieve this.
-                </p>
-                <div className="flex gap-2 pt-4">
-                  <span className="px-3 py-1 rounded bg-[#0a0a0a] border border-slate-800 text-xs font-mono text-slate-400">#030308</span>
-                  <span className="px-3 py-1 rounded bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-xs font-mono text-[#00f0ff]">#00f0ff</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
-
       {/* Animated divider */}
       <motion.div
-        className="mb-16"
+        className="mb-20"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
@@ -202,29 +164,36 @@ export default function AboutPage() {
         <div className="cyber-line" />
       </motion.div>
 
-      {/* 3. THE SKILLS MATRIX */}
+      {/* 3. TECHNICAL EXPERTISE MATRIX */}
       <section>
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex items-center gap-3 mb-12"
+          className="flex items-center gap-4 mb-12"
         >
-          <h2 className="text-3xl font-bold">Technical Expertise</h2>
-          <div className="h-[1px] flex-grow bg-gradient-to-r from-cyber-cyan/20 to-transparent" />
+          <div className="p-2 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/20 text-cyber-cyan">
+            <Sparkles size={22} />
+          </div>
+          <h2 className="text-3xl font-black">Technical Expertise</h2>
+          <div className="h-[1px] flex-grow bg-gradient-to-r from-cyber-cyan/20 to-transparent ml-4" />
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-12"
+          className="grid md:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           {skills.map((group) => (
-            <motion.div key={group.category} variants={itemVariants}>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-cyber-cyan mb-6 font-mono flex items-center gap-2">
-                <span className="text-cyber-cyan/30">{">"}</span>
+            <motion.div
+              key={group.category}
+              variants={itemVariants}
+              className="p-7 rounded-2xl glass-card border border-cyber-cyan/15 bg-[#040816]/70"
+            >
+              <h3 className="text-xs font-bold uppercase tracking-widest text-cyber-cyan mb-5 font-mono flex items-center gap-2">
+                <span className="text-cyber-cyan/50">{">"}</span>
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -235,7 +204,7 @@ export default function AboutPage() {
                       scale: 1.05,
                       boxShadow: "0 0 12px rgba(0, 240, 255, 0.2)",
                     }}
-                    className="px-4 py-2 rounded-lg glass-card text-slate-300 text-sm hover:text-cyber-cyan hover:border-cyber-cyan/20 transition-all duration-300 cursor-default"
+                    className="px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-mono hover:text-cyber-cyan hover:border-cyber-cyan/40 hover:bg-cyber-cyan/5 transition-all duration-200 cursor-default"
                   >
                     {item}
                   </motion.span>
